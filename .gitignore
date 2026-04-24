@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets
+.env
+GEMINI.md
+
+# Runtime Artifacts & Local Data
+output/
+cache/
+logs/
+data/
+docs/
+legacy/
+.tmp-tests/
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Gemini CLI Skills
+.agents/skills/*
+!.agents/skills/retail-research/

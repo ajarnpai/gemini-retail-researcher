@@ -1,0 +1,26 @@
+[project]
+name = "retail-research-skills"
+version = "0.1.0"
+description = "Lightweight retail research scripts and handoff bundle generation"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.28",
+    "pytrends",
+    "pandas",
+    "httpx",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["scripts"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
