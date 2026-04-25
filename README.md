@@ -70,11 +70,13 @@ source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 
 # Configure API Keys
-# Create a .env file with GOOGLE_MAPS_API_KEY and YOUTUBE_API_KEY
+# Create a secrets.env file with GOOGLE_PLACES_API_KEY (and optionally YOUTUBE_API_KEY)
 ```
 
-## Security
+## Security & Configuration
 
-- Credentials are managed via `scripts/config.py`.
-- API keys are never logged, printed, or committed to the repository.
-- `.geminiignore` is used to strictly block AI access to sensitive `.env` files.
+- **Credentials**: Managed via `scripts/config.py`.
+- **API Key Fallback**: `YOUTUBE_API_KEY` is optional. If not provided in `secrets.env`, the system defaults to using the `GOOGLE_PLACES_API_KEY` for YouTube requests.
+- **Privacy**: API keys are never logged, printed, or committed to the repository.
+- **Gemini CLI**: `.geminiignore` blocks the CLI from reading `secrets.env` or `.env.*` to maintain security and prevent your API keys from being processed or logged by the AI.
+- **Best Practice**: Always use a `secrets.env.example` template for documentation, and ensure `secrets.env` is explicitly listed in both `.gitignore` and `.geminiignore`. For production environments, consider using a secret manager (like Doppler or Infisical) for runtime injection.

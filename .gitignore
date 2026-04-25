@@ -11,6 +11,8 @@ htmlcov/
 
 # Secrets
 .env
+.env.*
+secrets.env
 GEMINI.md
 
 # Runtime Artifacts & Local Data

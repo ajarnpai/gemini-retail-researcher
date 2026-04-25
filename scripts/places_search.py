@@ -17,7 +17,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
-# Import config to trigger .env loading into os.environ
+# Import config to trigger secrets.env loading into os.environ
 import config  # noqa: F401
 
 PLACES_API_URL = "https://places.googleapis.com/v1/places:searchText"

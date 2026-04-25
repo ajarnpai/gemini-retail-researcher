@@ -9,8 +9,8 @@ CACHE_DIR = os.environ.get("RTS_CACHE_DIR", str(PROJECT_ROOT / "cache"))
 OUTPUT_DIR = os.environ.get("RTS_OUTPUT_DIR", str(PROJECT_ROOT / "output"))
 DATA_DIR = os.environ.get("RTS_DATA_DIR", str(PROJECT_ROOT / "data"))
 
-# --- Load .env if present (secrets stay in memory, never logged) ---
-_env_path = PROJECT_ROOT / ".env"
+# --- Load secrets.env if present (secrets stay in memory, never logged) ---
+_env_path = PROJECT_ROOT / "secrets.env"
 if os.environ.get("RTS_SKIP_ENV_FILE") != "1" and _env_path.exists():
     for line in _env_path.read_text().splitlines():
         line = line.strip()
@@ -18,7 +18,8 @@ if os.environ.get("RTS_SKIP_ENV_FILE") != "1" and _env_path.exists():
             key, _, value = line.partition("=")
             os.environ.setdefault(key.strip(), value.strip())
 
-# --- API Keys (loaded from .env or environment) ---
+# --- API Keys (loaded from secrets.env or environment) ---
+# YOUTUBE_API_KEY is optional; it defaults to GOOGLE_PLACES_API_KEY if not explicitly set.
 GOOGLE_PLACES_API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY", "")
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", GOOGLE_PLACES_API_KEY)
 
